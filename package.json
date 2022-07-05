@@ -1,6 +1,6 @@
 {
   "name": "egg-client-server",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "eggPlugin": {
     "name": "clientServer"
@@ -10,7 +10,9 @@
     "eggPlugin",
     "egg-plugin"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@grpc/grpc-js": "^1.6.7"
+  },
   "devDependencies": {
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
