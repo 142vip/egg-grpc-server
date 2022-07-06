@@ -6,7 +6,7 @@ describe('test/client-server.test.js', () => {
   let app;
   before(() => {
     app = mock.app({
-      baseDir: 'apps/client-server-test',
+      baseDir: 'apps/grpc-server-test',
     });
     return app.ready();
   });
@@ -17,7 +17,7 @@ describe('test/client-server.test.js', () => {
   it('should GET /', () => {
     return app.httpRequest()
       .get('/')
-      .expect('hi, clientServer')
+      .expect('hi, grpcServer')
       .expect(200);
   });
 });

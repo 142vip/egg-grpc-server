@@ -1,4 +1,4 @@
-# egg-client-server
+# egg-grpc-server
 
 [![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
@@ -7,18 +7,18 @@
 [![Known Vulnerabilities][snyk-image]][snyk-url]
 [![npm download][download-image]][download-url]
 
-[npm-image]: https://img.shields.io/npm/v/egg-client-server.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/egg-client-server
-[travis-image]: https://img.shields.io/travis/eggjs/egg-client-server.svg?style=flat-square
-[travis-url]: https://travis-ci.org/eggjs/egg-client-server
-[codecov-image]: https://img.shields.io/codecov/c/github/eggjs/egg-client-server.svg?style=flat-square
-[codecov-url]: https://codecov.io/github/eggjs/egg-client-server?branch=master
-[david-image]: https://img.shields.io/david/eggjs/egg-client-server.svg?style=flat-square
-[david-url]: https://david-dm.org/eggjs/egg-client-server
-[snyk-image]: https://snyk.io/test/npm/egg-client-server/badge.svg?style=flat-square
-[snyk-url]: https://snyk.io/test/npm/egg-client-server
-[download-image]: https://img.shields.io/npm/dm/egg-client-server.svg?style=flat-square
-[download-url]: https://npmjs.org/package/egg-client-server
+[npm-image]: https://img.shields.io/npm/v/egg-grpc-server.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/egg-grpc-server
+[travis-image]: https://img.shields.io/travis/eggjs/egg-grpc-server.svg?style=flat-square
+[travis-url]: https://travis-ci.org/eggjs/egg-grpc-server
+[codecov-image]: https://img.shields.io/codecov/c/github/eggjs/egg-grpc-server.svg?style=flat-square
+[codecov-url]: https://codecov.io/github/eggjs/egg-grpc-server?branch=master
+[david-image]: https://img.shields.io/david/eggjs/egg-grpc-server.svg?style=flat-square
+[david-url]: https://david-dm.org/eggjs/egg-grpc-server
+[snyk-image]: https://snyk.io/test/npm/egg-grpc-server/badge.svg?style=flat-square
+[snyk-url]: https://snyk.io/test/npm/egg-grpc-server
+[download-image]: https://img.shields.io/npm/dm/egg-grpc-server.svg?style=flat-square
+[download-url]: https://npmjs.org/package/egg-grpc-server
 
 <!--
 Description here.
@@ -28,7 +28,7 @@ Description here.
 
 ### 依赖的 egg 版本
 
-egg-client-server 版本 | egg 1.x
+egg-grpc-server 版本 | egg 1.x
 --- | ---
 1.x | 😁
 0.x | ❌
@@ -47,9 +47,9 @@ egg-client-server 版本 | egg 1.x
 
 ```js
 // config/plugin.js
-exports.clientServer = {
+exports.grpcServer = {
   enable: true,
-  package: 'egg-client-server',
+  package: 'egg-grpc-server',
 };
 ```
 

@@ -1,9 +1,9 @@
 {
-  "name": "egg-client-server",
+  "name": "egg-grpc-server",
   "version": "0.0.1",
   "description": "",
   "eggPlugin": {
-    "name": "clientServer"
+    "name": "grpcServer"
   },
   "keywords": [
     "egg",
@@ -11,7 +11,9 @@
     "egg-plugin"
   ],
   "dependencies": {
-    "@grpc/grpc-js": "^1.6.7"
+    "@grpc/grpc-js": "^1.6.7",
+    "@grpc/proto-loader": "^0.6.13",
+    "fs-extra": "^10.1.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -27,7 +29,7 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "test": "npm run lint -- --fix && egg-bin pkgfiles && npm run test-local",
+    "test": "npm run lint  --fix && egg-bin pkgfiles && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",
     "lint": "eslint .",
@@ -36,22 +38,21 @@
     "autod": "autod"
   },
   "files": [
-    "app.js",
-    "agent.js",
+    "app",
     "config",
-    "app"
+    "app.js"
   ],
   "ci": {
     "version": "8, 10"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-client-server.git"
+    "url": "https://github.com/142vip/egg-grpc-server.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/142vip/egg-grpc-server/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-client-server#readme",
+  "homepage": "https://github.com/142vip/egg-grpc-server#readme",
   "author": "Rong姐姐好可爱",
   "license": "MIT"
 }

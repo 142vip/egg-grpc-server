@@ -1,11 +1,11 @@
 'use strict';
 
 /**
- * egg-client-server default config
- * @member Config#clientServer
+ * egg-grpc-server default config
+ * @member Config#grpcServer
  * @property {String} SOME_KEY - some description
  */
-exports.clientServer = {
+exports.grpcServer = {
   protoDir: 'app/grpc',
   serviceDir: 'app/grpc',
   host: '0.0.0.0',
