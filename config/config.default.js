@@ -8,6 +8,8 @@
 exports.grpcServer = {
   protoDir: 'app/grpc',
   serviceDir: 'app/grpc',
+  protoPath: '',
+  servicePath: '',
   host: '0.0.0.0',
   port: '50051',
   loaderOption: {

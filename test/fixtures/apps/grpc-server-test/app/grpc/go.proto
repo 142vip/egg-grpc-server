@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package test;
+package abc;
 
-service goo {
-  rpc SayHello (RequestData) returns (ResponseData) {}
-  rpc SayHelloAgain (RequestData) returns (ResponseData) {}
+service test {
+  rpc SayHello2 (RequestData) returns (ResponseData) {}
+  rpc SayHelloAgain2 (RequestData) returns (ResponseData) {}
 }
 service goo22 {
   rpc SayHello (RequestData) returns (ResponseData) {}

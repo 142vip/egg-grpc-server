@@ -40,7 +40,8 @@
   "files": [
     "app",
     "config",
-    "app.js"
+    "app.js",
+    "libs"
   ],
   "ci": {
     "version": "8, 10"
