@@ -20,27 +20,27 @@ async function creatGRPCServerInstance(config, app) {
   console.log(result);
   await getProtoServiceRpcObject(result, {});
 
-  const test = await getGrpcControllerList(path.join(app.baseDir, 'app/controller'));
+  const test = await getGrpcControllerList(path.join(app.baseDir, 'app/grpc'));
 
-  app.loader.loadToApp(path.join(app.baseDir, 'app/controller'), '__grpcController'
-    // {
-    //   initializer(model) {
-    //   // 第一个参数为 export 的对象
-    //   // 第二个参数为一个对象，只包含当前文件的路径
-    //     console.log('model:', model, new model());
-    //     // return new model();
-    //     return model;
-    //   },
-    // }
+  app.loader.loadToApp(path.join(app.baseDir, 'app/controller'), '__grpcController',
+    {
+      initializer(model) {
+      // 第一个参数为 export 的对象
+      // 第二个参数为一个对象，只包含当前文件的路径
+        console.log('model:', model, new model());
+        // return new model();
+        return model;
+      },
+    }
   );
-  console.log('_controller:', Object.values(app.__grpcController));
+  console.log('_controller:', Object.keys(app.__grpcController), typeof app.__grpcController);
 
-  const grpcControllerList = Object.values(app.__grpcController);
+  const grpcControllerObjectMap = app.__grpcController;
 
   let grpcControllerObject = {};
-  for (const grpcController of grpcControllerList) {
-    console.log(1, grpcController);
-    grpcControllerObject = Object.assign({}, grpcControllerObject, grpcController);
+  for (const key in grpcControllerObjectMap) {
+    console.log('typeof:', new grpcControllerObjectMap[key]());
+    grpcControllerObject = Object.assign({}, grpcControllerObject, new grpcControllerObjectMap[key]());
   }
   console.log('grpcControllerObject:', grpcControllerObject);
 
