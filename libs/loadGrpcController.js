@@ -4,7 +4,6 @@ const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
 
-
 class loadGrpcController {
   constructor(app) {
     this.app = app;
@@ -23,35 +22,13 @@ class loadGrpcController {
     return fileControllerNameList;
   }
 
-  // app.loader.loadToApp(path.join(app.baseDir, 'app/controller'), '__grpcController',
-  //   {
-  //     initializer(model) {
-  //     // 第一个参数为 export 的对象
-  //     // 第二个参数为一个对象，只包含当前文件的路径
-  //     //   console.log('model:', model, new model());
-  //       return model;
-  //     },
-  //   }
-  // );
-  // console.log('_controller:', Object.keys(app.__grpcController), typeof app.__grpcController);
-
-  // const grpcControllerObjectMap = app.__grpcController;
-
-  // for (const key in grpcControllerObjectMap) {
-  //   console.log('typeof:', new grpcControllerObjectMap[key]());
-  //   grpcControllerObject = Object.assign({}, grpcControllerObject, new grpcControllerObjectMap[key]());
-  // }
-
-
   async getGrpcMethodObject(serviceDir) {
     const rpcControllerList = await this.getGrpcControllerList(serviceDir);
     let rpcObject = {};
     rpcControllerList.forEach(grpcServicePath => {
-      console.log('grpcServicePath:', grpcServicePath);
       const controller = require(grpcServicePath);
       rpcObject = Object.assign({}, rpcObject, new controller());
     });
-    console.log('rpcObject:', rpcObject);
     return rpcObject;
   }
 }

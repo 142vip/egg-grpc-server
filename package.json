@@ -3,7 +3,12 @@
   "version": "0.0.1",
   "description": "",
   "eggPlugin": {
-    "name": "grpcServer"
+    "name": "grpcServer",
+    "dependencies": {
+      "@grpc/grpc-js": "^1.6.7",
+      "@grpc/proto-loader": "^0.6.13",
+      "fs-extra": "^10.1.0"
+    }
   },
   "keywords": [
     "egg",
@@ -11,9 +16,6 @@
     "egg-plugin"
   ],
   "dependencies": {
-    "@grpc/grpc-js": "^1.6.7",
-    "@grpc/proto-loader": "^0.6.13",
-    "fs-extra": "^10.1.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
