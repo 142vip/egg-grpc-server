@@ -47,7 +47,6 @@ class loadProto {
     allServiceList.forEach(item => {
       rpcObject = Object.assign({}, rpcObject, item.service);
     });
-    console.log('rpcObject:', rpcObject);
     return rpcObject;
   }
 }

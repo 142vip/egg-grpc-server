@@ -1,6 +1,6 @@
 'use strict';
 
-class GrpcController {
+class GrpcBaseController {
   constructor(app) {
     this.app = app;
     this.ctx = app.createAnonymousContext();
@@ -8,4 +8,4 @@ class GrpcController {
 
 }
 
-module.exports = GrpcController;
+module.exports = GrpcBaseController;

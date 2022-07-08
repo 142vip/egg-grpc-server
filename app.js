@@ -15,5 +15,6 @@ module.exports = async app => {
   } else {
     app.logger.info(`[egg-grpc-server] grpc server start failed , Please check carefully! (${new Date().getTime() - now}ms)`);
   }
+  console.log('grpcServer:',grpcServer)
 };
 
