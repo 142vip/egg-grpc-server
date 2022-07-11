@@ -12,36 +12,42 @@ class loadProto {
   }
 
 
+  /**
+     * 扫描文件件中的.proto文件，过滤出proto文件
+     * @param protoDir
+     */
   async getProtoFileList(protoDir) {
+    const { app } = this;
     try {
       await fse.ensureDir(protoDir);
     } catch (err) {
-      console.log(err);
-      this.app.logger.error(`[egg-grpc-server] isn't dir: ${protoDir} `);
+      app.logger.error(`[egg-grpc-server] isn't dir: ${protoDir} `);
       return;
     }
     const filePathNameList = fs.readdirSync(protoDir);
     // 过滤
-    const fileProtoPathNameList = filePathNameList
+    return filePathNameList
       .filter(name => name.endsWith('.proto'))
       .map(filePathName => path.join(protoDir, filePathName));
-    return fileProtoPathNameList;
   }
 
+  /**
+     * 获取proto文件中service部分rpc的Object对象
+     * @param protoDir
+     * @param loadOption
+     */
   async getProtoServiceRpcObject(protoDir, loadOption) {
-    console.log(protoDir, loadOption);
     const protoList = await this.getProtoFileList(protoDir);
     const allServiceList = [];
     for (const protoTargetPath of protoList) {
       const packageDefinition = protoLoader.loadSync(protoTargetPath, loadOption);
       const grpcObject = grpc.loadPackageDefinition(packageDefinition);
-      for (const [ packageName, serviceObj ] of Object.entries(grpcObject)) {
+      Object.values(grpcObject).forEach(serviceObj => {
         const serviceList = Object.values(serviceObj).filter(item => {
           return item.service != null;
         });
         allServiceList.push(...serviceList);
-        console.log('getProtoServiceRpcObject：', packageName, serviceList);
-      }
+      });
     }
     let rpcObject = {};
     allServiceList.forEach(item => {
@@ -50,6 +56,5 @@ class loadProto {
     return rpcObject;
   }
 }
-
 
 module.exports = loadProto;
