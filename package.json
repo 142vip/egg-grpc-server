@@ -1,9 +1,14 @@
 {
   "name": "egg-grpc-server",
   "version": "0.0.1",
-  "description": "",
+  "description": "egg.js框架下grpc服务端插件，支持grpc服务远程调用",
   "eggPlugin": {
-    "name": "grpcServer"
+    "name": "grpcServer",
+    "dependencies": {
+      "@grpc/grpc-js": "^1.6.7",
+      "@grpc/proto-loader": "^0.6.13",
+      "fs-extra": "^10.1.0"
+    }
   },
   "keywords": [
     "egg",
@@ -40,8 +45,11 @@
   "files": [
     "app",
     "config",
+    "libs",
     "app.js",
-    "libs"
+    "agent.js",
+    "index.js",
+    "package.json"
   ],
   "ci": {
     "version": "8, 10"
