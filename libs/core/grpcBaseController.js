@@ -6,14 +6,12 @@ class GrpcBaseController {
     this.ctx = app.createAnonymousContext();
   }
 
-
   /**
-   * grpc健康检查
-   * @param request
-   * @return {Promise<void>}
-   */
+     * grpc健康检查
+     * @param request
+     * @return {Promise<void>}
+     */
   async healthCheck(request) {
-    // const { app } = this;
     return request;
   }
 }

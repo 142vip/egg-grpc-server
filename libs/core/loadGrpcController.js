@@ -1,7 +1,6 @@
 'use strict';
 
 const fs = require('fs');
-const fse = require('fs-extra');
 const path = require('path');
 
 class loadGrpcController {
@@ -16,14 +15,14 @@ class loadGrpcController {
      * @param serviceDir
      */
   async getGrpcControllerList(serviceDir) {
-    try {
-      await fse.ensureDir(serviceDir);
-    } catch (err) {
+    const fileStat = fs.statSync(serviceDir);
+    // 判断是否为目录
+    if (!fileStat.isDirectory()) {
       this.logger.error(`[egg-grpc-server] isn't dir: ${serviceDir}`);
       return;
     }
     const fileNameList = fs.readdirSync(serviceDir);
-    // 过滤
+    // 过滤js文件
     return fileNameList.filter(name => name.endsWith('.js'))
       .map(filePathName => path.join(serviceDir, filePathName));
   }
@@ -47,10 +46,11 @@ class loadGrpcController {
      * 对象实例中获取对象方法的属性名称
      * @param grpcControllerInstance
      */
-  getGrpcMethodName(grpcControllerInstance) {
-    return Object.getOwnPropertyNames(grpcControllerInstance.__proto__).filter(name => name !== 'constructor');
-  }
-
+  // getGrpcMethodName(grpcControllerInstance) {
+  //
+  //   return Object.getOwnPropertyNames(grpcControllerInstance.__proto__).filter(name => name !== 'constructor');
+  // }
+  //
 
   /**
      * 处理grpc方法转换
@@ -63,7 +63,9 @@ class loadGrpcController {
     grpcControllerClassList.forEach(grpcControllerClass => {
       // 实例化对象
       const grpcControllerInstance = new grpcControllerClass(app);
-      const grpcMethodNameList = this.getGrpcMethodName(grpcControllerInstance);
+      // const grpcMethodNameList = this.getGrpcMethodName(grpcControllerInstance);
+      // 获取原型对象上的属性
+      const grpcMethodNameList = Object.getOwnPropertyNames(grpcControllerClass.prototype).filter(name => name !== 'constructor');
       grpcMethodNameList.forEach(methodName => {
         // 存在覆盖
         grpcAsyncMethodObject[methodName] = async (call, callback) => {
@@ -71,7 +73,7 @@ class loadGrpcController {
             const { data } = call.request;
             if (data == null) {
               // 参数错误 ，按照proto规范中定义
-              this.logger.info('[egg-grpc-server] proto file exist a init problem , please check .proto file');
+              this.logger.error('[egg-grpc-server] proto file exist a init problem , please check .proto file');
               return;
             }
             const now = new Date().getTime();

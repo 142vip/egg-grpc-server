@@ -1,31 +1,21 @@
 {
   "name": "@142vip/egg-grpc-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "egg.js框架下grpc服务端插件，支持grpc服务远程调用",
   "eggPlugin": {
-    "name": "grpcServer",
-    "dependencies": {
-      "@grpc/grpc-js": "^1.6.7",
-      "@grpc/proto-loader": "^0.6.13",
-      "fs-extra": "^10.1.0"
-    }
+    "name": "grpcServer"
   },
   "main": "index.js",
-  "bin": {
-    "fairy": "index.js"
-  },
   "keywords": [
-    "egg-grpc",
-    "egg.js",
-    "grpc",
     "公众号：Rong姐姐好可爱",
-    "mmdapl",
-    "142vip"
+    "142vip",
+    "grpc",
+    "egg-grpc",
+    "egg.js"
   ],
   "dependencies": {
     "@grpc/grpc-js": "^1.6.7",
-    "@grpc/proto-loader": "^0.6.13",
-    "fs-extra": "^10.1.0"
+    "@grpc/proto-loader": "^0.6.13"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -54,7 +44,8 @@
     "config",
     "libs",
     "app.js",
-    "agent.js"
+    "agent.js",
+    "grpc-server-started.png"
   ],
   "ci": {
     "version": "8, 10"

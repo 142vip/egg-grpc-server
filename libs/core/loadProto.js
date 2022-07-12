@@ -9,6 +9,7 @@ const grpc = require('@grpc/grpc-js');
 class loadProto {
   constructor(app) {
     this.app = app;
+    this.logger = app.coreLogger;
   }
 
 
@@ -17,11 +18,10 @@ class loadProto {
      * @param protoDir
      */
   async getProtoFileList(protoDir) {
-    const { app } = this;
     try {
       await fse.ensureDir(protoDir);
     } catch (err) {
-      app.logger.error(`[egg-grpc-server] isn't dir: ${protoDir} `);
+      this.logger.error(`[egg-grpc-server] isn't dir: ${protoDir} `);
       return;
     }
     const filePathNameList = fs.readdirSync(protoDir);

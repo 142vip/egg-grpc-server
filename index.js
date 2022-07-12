@@ -4,8 +4,8 @@
  * 统一暴露默认的controller
  */
 
-const grpcBaseController = require('./libs/core/grpcBaseController');
+const GrpcBaseController = require('./libs/core/grpcBaseController');
 
 module.exports = {
-  grpcBaseController,
+  GrpcBaseController,
 };
