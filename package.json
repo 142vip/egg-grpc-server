@@ -1,6 +1,6 @@
 {
   "name": "@142vip/egg-grpc-server",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "egg.js框架下grpc服务端插件，支持grpc服务远程调用",
   "eggPlugin": {
     "name": "grpcServer"

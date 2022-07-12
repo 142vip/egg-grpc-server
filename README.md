@@ -162,7 +162,7 @@ message ResponseData {
 
 完成上述配置后，便可以如普通插件一样，执行npm指令启动egg项目，可以在启动日志中看到grpc服务端启动成功
 
-![img.png](grpc-server-started.png)
+![img.png](./grpc-server-started.png)
 
 
 关于插件的任何问题，欢迎issues交流。详细grpc客户端、服务端插件使用，可以查看插件示例[egg-grpc-demo](https://github.com/142vip/egg-grpc-demo)
