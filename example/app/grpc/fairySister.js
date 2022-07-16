@@ -40,8 +40,12 @@ class FairySisterController extends GrpcBaseController {
      * @param request
      */
   async healthCheck(request) {
-    const { app } = this;
-    app.logger.info('egg-grpc-client客户端请求的参数：', request);
+    const { ctx, app } = this;
+    app.logger.info('[egg-grpc-server] 客户端请求的参数：', request);
+
+    const data = await ctx.service.test.getServiceData();
+    app.logger.info('[egg-grpc-server] 插件调用service逻辑，返回用例数据:', data);
+
     // 插件约定好，返回客户端数据，包裹成对象，通过return返回
     return {
       status: true,

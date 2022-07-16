@@ -9,7 +9,6 @@ class GrpcBaseController {
   /**
      * grpc健康检查
      * @param request
-     * @return {Promise<void>}
      */
   async healthCheck(request) {
     return request;
