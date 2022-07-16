@@ -1,6 +1,6 @@
 {
   "name": "@142vip/egg-grpc-server",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "egg.js框架下grpc服务端插件，支持grpc服务远程调用",
   "eggPlugin": {
     "name": "grpcServer"
@@ -58,7 +58,7 @@
     "url": "https://github.com/142vip/egg-grpc-server/issues"
   },
   "homepage": "https://github.com/142vip/egg-grpc-server#readme",
-  "author":{
+  "author": {
     "name": "Rong姐姐好可爱",
     "email": "fairy_vip@2925.com"
   },
