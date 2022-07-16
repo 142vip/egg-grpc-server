@@ -1,24 +1,4 @@
-## egg-grpc-server
-
-[![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
-[![Test coverage][codecov-image]][codecov-url]
-[![David deps][david-image]][david-url]
-[![Known Vulnerabilities][snyk-image]][snyk-url]
-[![npm download][download-image]][download-url]
-
-[npm-image]: https://img.shields.io/npm/v/egg-grpc-server.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/egg-grpc-server
-[travis-image]: https://img.shields.io/travis/eggjs/egg-grpc-server.svg?style=flat-square
-[travis-url]: https://travis-ci.org/eggjs/egg-grpc-server
-[codecov-image]: https://img.shields.io/codecov/c/github/eggjs/egg-grpc-server.svg?style=flat-square
-[codecov-url]: https://codecov.io/github/eggjs/egg-grpc-server?branch=master
-[david-image]: https://img.shields.io/david/eggjs/egg-grpc-server.svg?style=flat-square
-[david-url]: https://david-dm.org/eggjs/egg-grpc-server
-[snyk-image]: https://snyk.io/test/npm/egg-grpc-server/badge.svg?style=flat-square
-[snyk-url]: https://snyk.io/test/npm/egg-grpc-server
-[download-image]: https://img.shields.io/npm/dm/egg-grpc-server.svg?style=flat-square
-[download-url]: https://npmjs.org/package/egg-grpc-server
+## @142vip/egg-grpc-server
 
 
 ### 功能规划
@@ -28,15 +8,18 @@
 - [x] app.js 多worker工作进程挂载，但存在端口冲突
 - [x] proto文件自动扫描、解析，支持语法报错检查
 - [x] js类自动实例化，仿Controller写法，最大限度支持egg.js框架
-- [ ] 多worker启动，端口冲突解决
-- [ ] 日志优化 
+- [x] 多worker启动，端口冲突解决 , 灵活配置agent加载
+- [x] 日志优化 
 
 
 ### 安装
 
 ```bash
 ## 安装插件
-npm i egg-grpc-server --save
+npm install @142vip/egg-grpc-server --save
+
+## 安装指定版本
+npm install @142vip/egg-grpc-server@xxx --save
 
 ```
 
@@ -46,7 +29,7 @@ npm i egg-grpc-server --save
 // {app_root}/config/plugin.js
 exports.grpcServer = {
   enable: true,
-  package: 'egg-grpc-server',
+  package: '@142vip/egg-grpc-server',
 };
 ```
 
@@ -162,7 +145,7 @@ message ResponseData {
 
 完成上述配置后，便可以如普通插件一样，执行npm指令启动egg项目，可以在启动日志中看到grpc服务端启动成功
 
-![img.png](grpc-server-started.png)
+![img.png](./grpc-server-started.png)
 
 
 关于插件的任何问题，欢迎issues交流。详细grpc客户端、服务端插件使用，可以查看插件示例[egg-grpc-demo](https://github.com/142vip/egg-grpc-demo)
