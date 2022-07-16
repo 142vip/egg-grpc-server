@@ -4,6 +4,10 @@
 module.exports = {
   grpcServer: {
     enable: true,
-    package: 'egg-grpc-server',
+    package: '@142vip/egg-grpc-server',
+  },
+  validate: {
+    enable: true,
+    package: 'egg-validate',
   },
 };

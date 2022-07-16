@@ -21,5 +21,17 @@ module.exports = appInfo => {
     agent: false, // 是否在agent.js中加载，默认false
     app: true,
   };
+
+  config.validate = {
+
+  };
+
+  // 定义端口
+  config.cluster = {
+    listen: {
+      port: 8848,
+      host: '0.0.0.0',
+    },
+  };
   return config;
 };
