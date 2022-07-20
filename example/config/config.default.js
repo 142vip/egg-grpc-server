@@ -1,11 +1,8 @@
-
 'use strict';
 
-
 module.exports = appInfo => {
-  const config = exports = {};
+  const config = (exports = {});
   config.keys = appInfo.name + '_142vip';
-
   config.grpcServer = {
     protoDir: 'app/grpc', // 存放proto文件的目录，扫描.proto后缀文件
     serviceDir: 'app/grpc', // 存放服务端远程方法的目录，扫描.js后缀文件
@@ -22,8 +19,11 @@ module.exports = appInfo => {
     app: true,
   };
 
-  config.validate = {
+  config.validate = {};
 
+  config.logger = {
+    // level: 'INFO',
+    // consoleLevel: 'INFO',
   };
 
   // 定义端口
