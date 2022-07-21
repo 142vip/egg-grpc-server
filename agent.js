@@ -19,7 +19,7 @@ module.exports = agent => {
       `[egg-grpc-server] please check config file . protoDir:${config.protoDir}  serviceDir:${config.serviceDir}   host:${config.host}   port:${config.port}    loaderOptions:${config.loaderOptions}`
     );
     if (config.agent) {
-      agent.coreLogger.info(
+      agent.logger.info(
         '[egg-grpc-server] grpc server will be loaded on agent.js'
       );
       agent.grpcServer = await new grpcServer(agent).init();

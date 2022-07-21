@@ -7,7 +7,7 @@
     "declarations": true
   },
   "dependencies": {
-    "@142vip/egg-grpc-server": "0.0.3",
+    "@142vip/egg-grpc-server": "^0.0.5",
     "egg": "^2",
     "egg-scripts": "^2",
     "egg-validate": "^2.0.2"

@@ -17,9 +17,7 @@ module.exports = app => {
       `[egg-grpc-server] please check config file . protoDir:${config.protoDir}  serviceDir:${config.serviceDir}   host:${config.host}   port:${config.port}    loaderOptions:${config.loaderOptions}`
     );
     if (config.app === true) {
-      app.coreLogger.info(
-        '[egg-grpc-server] grpc server will be loaded on app.js'
-      );
+      app.logger.info('[egg-grpc-server] grpc server will be loaded on app.js');
       app.grpcServer = await new grpcServer(app).init();
     }
   });

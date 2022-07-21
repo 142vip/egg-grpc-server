@@ -11,7 +11,7 @@ const grpcServerInstance = new grpc.Server();
 class grpcServer {
   constructor(app) {
     this.app = app;
-    this.logger = app.coreLogger;
+    this.logger = app.logger;
   }
 
   /**

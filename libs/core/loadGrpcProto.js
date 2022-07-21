@@ -10,7 +10,7 @@ const grpc = require('@grpc/grpc-js');
 class loadGrpcProto {
   constructor(app) {
     this.app = app;
-    this.logger = app.coreLogger;
+    this.logger = app.logger;
   }
 
   /**
@@ -34,7 +34,6 @@ class loadGrpcProto {
    * 获取proto文件中service部分rpc的Object对象
    * @param protoDir
    * @param loadOption
-   * @return {Promise<{}>}
    */
   async getProtoServiceRpcObject(protoDir, loadOption) {
     const protoList = await this.getProtoFileList(protoDir);
