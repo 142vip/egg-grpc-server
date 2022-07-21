@@ -1,26 +1,25 @@
 'use strict';
 const fs = require('fs');
-const fse = require('fs-extra');
 const path = require('path');
 const protoLoader = require('@grpc/proto-loader');
 const grpc = require('@grpc/grpc-js');
 
-
-class loadProto {
+/**
+ * grpc proto文件加载
+ */
+class loadGrpcProto {
   constructor(app) {
     this.app = app;
     this.logger = app.coreLogger;
   }
 
-
   /**
-     * 扫描文件件中的.proto文件，过滤出proto文件
-     * @param protoDir
-     */
+   * 扫描文件件中的.proto文件，过滤出proto文件
+   * @param protoDir
+   */
   async getProtoFileList(protoDir) {
-    try {
-      await fse.ensureDir(protoDir);
-    } catch (err) {
+    const fileStat = fs.statSync(protoDir);
+    if (!fileStat.isDirectory()) {
       this.logger.error(`[egg-grpc-server] isn't dir: ${protoDir} `);
       return;
     }
@@ -32,15 +31,19 @@ class loadProto {
   }
 
   /**
-     * 获取proto文件中service部分rpc的Object对象
-     * @param protoDir
-     * @param loadOption
-     */
+   * 获取proto文件中service部分rpc的Object对象
+   * @param protoDir
+   * @param loadOption
+   * @return {Promise<{}>}
+   */
   async getProtoServiceRpcObject(protoDir, loadOption) {
     const protoList = await this.getProtoFileList(protoDir);
     const allServiceList = [];
     for (const protoTargetPath of protoList) {
-      const packageDefinition = protoLoader.loadSync(protoTargetPath, loadOption);
+      const packageDefinition = protoLoader.loadSync(
+        protoTargetPath,
+        loadOption
+      );
       const grpcObject = grpc.loadPackageDefinition(packageDefinition);
       Object.values(grpcObject).forEach(serviceObj => {
         const serviceList = Object.values(serviceObj).filter(item => {
@@ -57,4 +60,4 @@ class loadProto {
   }
 }
 
-module.exports = loadProto;
+module.exports = loadGrpcProto;

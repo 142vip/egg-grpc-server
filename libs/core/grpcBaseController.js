@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * grpc方法基础类，在模块中导出
+ */
 class GrpcBaseController {
   constructor(app) {
     this.app = app;
@@ -7,10 +10,9 @@ class GrpcBaseController {
   }
 
   /**
-     * grpc健康检查
-     * @param request
-     * @return {Promise<void>}
-     */
+   * grpc健康检查
+   * @param request
+   */
   async healthCheck(request) {
     return request;
   }
