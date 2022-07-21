@@ -41,8 +41,16 @@ config.grpcServer = {
 npm install
 ## 运行项目
 npm run dev
-## 打开浏览器，访问示例
+## 可以看到grpc和服务启动的日志输出
+2022-07-21 10:45:15,258 INFO 99110 [master] egg version 2.36.0
+2022-07-21 10:45:16,197 INFO 99110 [master] agent_worker#1:99112 started (937ms)
+2022-07-21 10:45:17,293 INFO 99113 [egg-grpc-server] grpc server will be loaded on app.js
+2022-07-21 10:45:17,328 INFO 99113 [egg-grpc-server] grpc server started at http://127.0.0.1:50051 (34ms)
+2022-07-21 10:45:17,337 INFO 99110 [master] egg started on http://127.0.0.1:8848 (2079ms)
+
+## 打开浏览器，访问grpc示例
 open http://127.0.0.1:8848 
+
 ```
 
 ### 部署
